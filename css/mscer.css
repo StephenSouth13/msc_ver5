@@ -1,0 +1,682 @@
+/* Reset + base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 1.6;
+  overflow-x: hidden; /* Ngăn chặn nội dung tràn ra ngoài */
+}
+
+a {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 300 !important;
+  font-style: normal;
+}
+
+/* Topbar */
+.topbar {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* topbar không sticky */
+}
+.topbar .lang-btn img {
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.topbar .top-links a {
+  margin-left: 12px;
+  text-decoration: none;
+  color: hsl(0, 18%, 92%);
+}
+.topbar-right {
+  display: flex;
+  gap: 1rem;
+}
+.topbar-right button {
+  font-size: 14px;
+  background-color: #fff;
+  padding: 2px 15px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+  color: #53565a;
+  border: none;
+  height: 25px;
+}
+.topbar-right button:hover {
+  background-color: #005e90;
+  color: #fff;
+  cursor: pointer;
+}
+.topbar-right .d-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Header */
+header {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 75px;
+  transition: height 0.3s ease;
+}
+.navbar {
+  position: relative;
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  font-size: 18px;
+  gap: 25px;
+  max-width: 100%; /* Giới hạn chiều rộng của nav-menu */
+}
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  border-bottom: solid 2px #fff;
+  font-weight: 500;
+  transition: all ease-in-out .25s;
+}
+.nav-menu li a:hover {
+  border-color: #0091D0;
+}
+
+.nav-menu li a.active {
+  color: #007bff; /* hoặc màu nổi bật bạn muốn */
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Mobile nav icon */
+/* Nút mở menu */
+.mobile-nav-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #003B5C;
+}
+
+/* Menu mobile */
+.nav-mobile-menu {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 75%;
+  max-width: 280px;
+  height: 100vh;
+  background: #003B5C;
+  color: white;
+  padding: 20px;
+  z-index: 1001;
+  transition: right 0.3s ease-in-out;
+}
+
+.nav-mobile-menu.active {
+  right: 0;
+}
+
+.nav-mobile {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.nav-mobile li {
+  margin: 15px 0;
+}
+
+.nav-mobile a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-mobile li a {
+  text-decoration: none;
+  color: #ffffff;
+  border-bottom: solid 2px #003B5C;
+  font-weight: 500;
+  transition: all ease-in-out .25s;
+}
+
+.nav-mobile li a:hover {
+  border-color: #0091D0;
+}
+
+/* Header menu thu gọn */
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mobile-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+.menu {
+  position: fixed; /* hoặc absolute, tùy vào layout */
+  z-index: 9999;
+}
+
+/* Ẩn menu desktop trên mobile */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .d-done{
+    display: none;
+  }
+}
+
+.mobile-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* đen mờ */
+  z-index: 998;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.active {
+  display: block;
+}
+
+
+/* .offcanvas.offcanvas-end {
+  top: 0;
+  right: 0;
+  width: var(--bs-offcanvas-width);
+  border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+  transform: translateX(100%);
+} */
+
+/* Hero Section */
+.hero-section {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background-image: url('../msc/assets/bannercon.webp'); /* Đổi thành ảnh của bạn */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: hsla(198, 100%, 39%, 0.6); /* Lớp phủ đỏ mờ */
+      z-index: 1;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 20px;
+    }
+    /* ===============================
+   FLOATING CONTACT ICONS
+================================= */
+.floating-contact {
+  position: fixed;
+  right: 20px;
+  bottom: 80px; /* Đẩy các icon lên trên nút Back to Top */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+  animation: fadeInRight 1s ease forwards;
+}
+
+.floating-contact .contact-btn img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-contact .contact-btn img:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px; /* Đặt nút Back to Top dưới các icon */
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #004080; /* Màu xanh đậm */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background-color: #003366; /* Màu xanh đậm hơn khi hover */
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top i {
+  font-size: 24px;
+}
+
+/*Nội dung chính*/
+.unit-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #333;
+}
+
+.box-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  justify-items: center;
+  margin-top: 24px;
+}
+
+.profile-box {
+  width: 260px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  text-align: center;
+  padding: 24px 16px 28px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-img {
+  width: 66%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 3px #007BFF;
+  margin: 0 auto 18px;
+  display: block;
+  background: #e3f6fd;
+  transition: transform 0.3s;
+}
+
+.profile-box:hover .profile-img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .profile-box {
+    width: 98%;
+    padding: 18px 6px 20px;
+  }
+  .profile-img {
+    width: 90%;
+  }
+}
+
+.fullname {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.cv-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cv-button:hover {
+  background: linear-gradient(135deg, #3a3fc5, #6f74f4);
+  transform: scale(1.05);
+}
+
+
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .box-grid {
+    grid-template-columns: 1fr; /* 1 cột trên mobile */
+  }
+}
+
+@media (max-width: 1024px) {
+  .box-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .box-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/*footer*/
+.footer {
+  background: #002a5c;
+  color: white;
+  padding: 40px 20px;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+.footer-col {
+  flex: 1 1 300px;
+}
+.footer-logo {
+  height: 80px;
+  margin-bottom: 6px;
+}
+.footer-sub {
+  font-size: 16px;
+  opacity: 0.8;
+}
+.footer-col h4 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.social-icons a img {
+  width: 35px;
+  margin-right: 12px;
+}
+.fb-box img {
+  width: 150%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+.subscribe-form {
+  display: flex;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+  max-width: 350px;
+}
+.subscribe-form input {
+  border: none;
+  padding: 12px; /* Tăng padding cho input */
+  flex: 1;
+  font-size: 16px; /* Tăng kích thước chữ trong input */
+}
+.subscribe-form button {
+  background: #ffc107;
+  border: none;
+  padding: 12px 16px; /* Tăng padding cho button */
+  cursor: pointer;
+  font-size: 16px; /* Tăng kích thước chữ trong button */
+}
+.subscribe-form button img {
+  width: 28px;
+}
+.footer-privacy {
+  font-size: 10px; /* Tăng kích thước chữ lên 14px */
+  margin-top: 16px;
+}
+.footer-privacy a {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-col {
+    flex-basis: auto;
+  }
+
+  .footer-logo {
+    height: 70px;
+  }
+
+  .social-icons a img {
+    width: 30px;
+  }
+
+  .subscribe-form {
+    max-width: 100%;
+  }
+
+  .subscribe-form input,
+  .subscribe-form button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .subscribe-form button img {
+    width: 20px;
+  }
+}
+
+/* Box đẹp, caption chỉ họ tên và chuyên môn, icon, responsive */
+.box-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.box-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s;
+  padding: 16px;
+  text-align: center;
+}
+
+.box-item:hover {
+  transform: translateY(-4px);
+}
+
+.box-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.fullname {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.specialty, .university {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.specialty i, .university i {
+  margin-right: 6px;
+  color: #007BFF;
+}
+
+.btn-view-cv {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #007BFF;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.btn-view-cv:hover {
+  background: #0056b3;
+}
+
+
+.box-caption {
+  flex: 1 1 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 8px 16px 8px;
+  background: linear-gradient(135deg, #e3f6fd 0%, #f9f9f9 100%);
+  border-top: 1px solid #e0e0e0;
+  min-height: 90px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.fullname {
+  font-size: 18px;
+  color: hsl(0, 0%, 5%);
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-align: center;
+  word-break: break-word;
+}
+
+.specialty {
+  font-size: 15px;
+  color: hsl(211, 100%, 50%);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.specialty i {
+  font-size: 17px;
+  color: #007bff;
+}
+
+/* Hover effect */
+.box-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 123, 255, 0.18);
+  background: linear-gradient(135deg, #d0f0ff 0%, #e3f6fd 100%);
+  z-index: 2;
+}
+.box-item:hover .box-caption {
+  background: #007bff;
+}
+.box-item:hover .fullname,
+.box-item:hover .specialty,
+.box-item:hover .specialty i {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .box-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .box-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .box-grid {
+    grid-template-columns: 1fr;
+  }
+  .box-item img {
+    height: 220px;
+  }
+  .box-caption {
+    padding: 14px 4px 12px 4px;
+    min-height: 70px;
+  }
+  .fullname {
+    font-size: 17px;
+  }
+  .specialty {
+    font-size: 14px;
+  }
+}
